@@ -1,5 +1,5 @@
 # Visual Similarity Search
-### Rank image similarity of cars by using Google's Inception Model to generate image features.
+### Rank image similarity of cars. Uses Google's Inception-v3 Model to generate image features.
 Created By: Rohan Doshi
 
 Demo: http://VisualSearch.pythonanywhere.com/
