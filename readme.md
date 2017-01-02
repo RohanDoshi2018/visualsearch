@@ -8,8 +8,7 @@ Demo: http://VisualSearch.pythonanywhere.com/
 This is a visual search demo. Click on a car, and the other 19 cars will re-order by similarity. This is done by sorting the pair-wise euclidian distance between the feature vectors for the images. We generate these feature vectors using a pre-trained TensorFlow implementation of Google's Inception-v3 model. Although the Inception-v3 model is originally trained for a general 1000-label classification task, I postulate the second-to-last layer containing a 2048 dimension feature vector feeding into the softmax classifier can be used as a generalizable representation of an image (a.k.a. transfer learning). To learn more about the underlying convolutional neural network architecture for Inception-v3, check out this paper by Szegedy et al at https://arxiv.org/abs/1512.00567.
 
 #### How to Run
-1. Clone the repo
-2. Change your director.y to the folder holding server.py
+1. Clone the repo and change your directory to the folder holding server.py
 2. Launch the flask server using the bash command: python server.py
 3. Open the app by navigating to http://127.0.0.1:5000/ on a web-browser (e.g. Google Chrome)
 
