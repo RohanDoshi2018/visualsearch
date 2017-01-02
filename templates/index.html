@@ -1,0 +1,34 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Visual Search Demo</title>
+<!-- jquery -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<!-- bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- google fonts -->
+<link href="https://fonts.googleapis.com/css?family=Lobster|Raleway" rel="stylesheet">
+<!-- homepage styling -->
+<link rel="stylesheet" type="text/css" href="/index.css">
+ </head>
+
+<body>
+
+<div class="container">
+	<div class="title">Visual Search Demo</div>
+	<div class="img_section_wrapper">
+        <div class="loader"></div>   
+    </div>
+    <h3>Technical Discussion</h3>
+    <p> This is a visual search demo. Click on a car, and the other cars will re-order by similarity. This is done by measuring the pair-wise euclidian distance between the feature vectors for the images. We generate these feature vectors using a pre-trained TensorFlow implementation of Google's Inception-v3 model. Although the Inception-v3 model is originally trained for a general 1000-label classification task, I postulate the second-to-last layer containing a 2048 dimension feature vector feeding
+    into the softmax classifier can be used as a generalizable representation of an image (a.k.a. transfer learning). To learn more about the underlying convolutional neural network architecture for Inception-v3, check out <a href="https://arxiv.org/abs/1512.00567">this paper by Szegedy et al. (2015).</a> </p>
+    <p>Find the code on <a href="https://github.com/RohanDoshi2018/visualsearch">Github</a>.</p>
+    <img src="/inception_architecture.png" class="inception_img">
+</div>
+
+<script src="/image_features.js"></script>
+<script src="/index.js"></script>
+</body>
+</html>
