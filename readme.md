@@ -1,4 +1,4 @@
-# Visual Search Demo
+# Visual Similarity Search
 ### Rank image similarity of cars by using Google's Inception Model to generate image features.
 Created By: Rohan Doshi
 
@@ -13,9 +13,14 @@ This is a visual search demo. Click on a car, and the other 19 cars will re-orde
 2. Launch the flask server using the bash command: python server.py
 3. Open the app by navigating to http://127.0.0.1:5000/ on a web-browser (e.g. Google Chrome)
 
-#### Design Decisions
-I implement the Python backend using the Flask-framework in order to easily interface with the Python API for TensorFlow, Google's machine learning library. For the production deployment of the app, I've cached all the image feature vectors in a JSON object to
-prevent the need to generate the TensorFlow graph and input all the images each time the home page loads (~10 second process). I've decided to implement the pairwise euclidian distance calculations on the client-side as opposed to the server-side in order to eliminate the transmission time of HTTP request between the client and server; there are only twenty samples, so the client can handle this level of computation. In terms of my choice of vector similarity metrics for feature vectors, I have experimentally found that euclidian distance works better than cosine similarity, which may be attributed to the high dimensionality of the vectors.
+#### Technical Discussion
+When choosing a vector similarity metrics, I  experimentally found that euclidian distance worked better than cosine similarity, which may be attributed to the high dimensionality of the data. Also, if I had more time, I would have explored other methods for generating image feature vectors other than Inception-v3:
+
+1. I could have trained an auto-encoders on a large corpus of car images.
+2. I could have used histograms to track colour, shape, texture, luminosity, complexity, objects and regions.
+
+#### Architecture Decisions
+I implemented the Python backend using the Flask-framework in order to easily interface with the Python API for TensorFlow, Google's machine learning library. For the production deployment of the app, I've cached all the image feature vectors in a JSON object to eliminate the need to generate the TensorFlow graph and input all the images each time the home page loads (~10 second process). I decided to implement the pairwise euclidian distance calculations on the client-side as opposed to the server-side in order to eliminate the transmission time of HTTP request between the client and server; there are only twenty images, so the client can handle the computations.
 
 #### Credit
 1. TensorFlow's Image Classification Tutorial (https://www.tensorflow.org/tutorials/image_recognition/)
